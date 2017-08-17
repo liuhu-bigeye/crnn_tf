@@ -1,0 +1,23 @@
+#!/bin/bash
+set -x
+
+MAIN_SCRIPTS=$1
+CONFIG_FILE=$2
+
+SCRIPTS_DIR=$(dirname $MAIN_SCRIPTS)
+OUT_NAME=$(basename $CONFIG_FILE)
+if [ ! -d "${SCRIPTS_DIR}/output" ]; then
+    mkdir $SCRIPTS_DIR/output
+fi
+OUTPUT_DIR="${SCRIPTS_DIR}/output/"${OUT_NAME:7}"_`date +'%Y-%m-%d_%H-%M-%S'`"
+
+mkdir $OUTPUT_DIR
+cp $SCRIPTS_DIR/*.py $OUTPUT_DIR
+cp $CONFIG_FILE $OUTPUT_DIR
+
+CONFIG_PATH=$OUTPUT_DIR/$(basename $CONFIG_FILE)
+python $MAIN_SCRIPTS $OUTPUT_DIR $CONFIG_PATH 2>&1 | tee $OUTPUT_DIR/log.txt
+
+if [ $(cat $OUTPUT_DIR/log.txt | grep 'Iteration' | wc -l) -le 40 ]; then
+    rm -rf $OUTPUT_DIR
+fi

@@ -1,0 +1,36 @@
+# configs startswith '='
+# no '' for string
+# readme begin after ----
+# log will be saved if only with more than 5 Iterations
+predict=True
+
+phase=origin_ctc
+em_rate=4
+em_hard_rate=1.0
+hidden_ndim=1024
+highway=False
+
+gpu=2
+lr=5e-4
+batch_size=10
+disp_iter=40
+patience=10
+max_epoch=200
+
+feature_path=/var/disk1/RWTH2014/feat_1mil_1024.h5
+feature_key=1mil_rh
+# feature_path='/home/liuhu/workspace/fight_4_cvpr/features/phase_1/feature_vgg_full_ep26.h5'
+# feature_key='1_rh'
+
+estimate_path=DIR/est_1mil.h5
+estimate_key=DIR/1mil_rh_est
+
+gaussian_noise_scale=0.0
+snap_path=DIR/snapshot
+prefix=ctc_rate_4
+
+model=/home/liuhu/workspace/fight_4_icml/1_em_after/output/ctc_rate4_2017-02-03_17-38-53/snapshot/ctc_rate_4_epoch_0099
+----
+This is a origin ctc with em_rate = 4
+Add best path loss and greedy loss
+only for prediction

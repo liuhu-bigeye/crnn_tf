@@ -1,0 +1,29 @@
+# configs startswith '='
+# no '' for string
+# readme begin after ----
+# log will be saved if only with more than 5 Iterations
+
+phase=origin_ctc
+em_rate=4
+
+gpu=1
+lr=5e-4
+batch_size=10
+disp_iter=40
+patience=10
+max_epoch=100
+
+feature_path=/var/disk1/RWTH2014/feat_1mil_1024.h5
+feature_key=1mil_rh
+# feature_path='/home/liuhu/workspace/fight_4_cvpr/features/phase_1/feature_vgg_full_ep26.h5'
+# feature_key='1_rh'
+
+estimate_path=DIR/est_1mil.h5
+estimate_key=DIR/1mil_rh_est
+
+gaussian_noise_scale=0.5
+snap_path=DIR/snapshot
+prefix=ctc
+
+----
+This is a baseline ctc

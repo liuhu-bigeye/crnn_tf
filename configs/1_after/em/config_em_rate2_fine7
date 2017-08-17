@@ -1,0 +1,34 @@
+# configs startswith '='
+# no '' for string
+# readme begin after ----
+# log will be saved if only with more than 5 Iterations
+
+phase=em_ctc
+em_rate=2
+em_hard_rate=1.0
+hidden_ndim=512
+highway=True
+
+gpu=0
+lr=5e-4
+batch_size=10
+disp_iter=40
+patience=10
+max_epoch=200
+
+feature_path=/var/disk1/RWTH2014/feat_1mil_1024.h5
+feature_key=1mil_rh
+# feature_path='/home/liuhu/workspace/fight_4_cvpr/features/phase_1/feature_vgg_full_ep26.h5'
+# feature_key='1_rh'
+
+estimate_path=DIR/est_1mil.h5
+estimate_key=DIR/1mil_rh_est
+
+gaussian_noise_scale=0.0
+snap_path=DIR/snapshot
+prefix=em_rate_2_fine7
+
+model=/home/liuhu/workspace/fight_4_icml/1_em_after/output/ctc_rate2_2017-01-25_14-45-57/snapshot/ctc_rate_2_epoch_0007
+----
+This is a em ctc without gaussian, finetune from epoch 7, em_rate 2
+This time add best path for suspect, may fall in error...
