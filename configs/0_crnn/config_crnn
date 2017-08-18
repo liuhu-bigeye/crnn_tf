@@ -1,0 +1,20 @@
+# configs startswith '='
+# no '' for string
+# readme begin after ----
+# log will be saved if only with more than 5 Iterations
+
+phase=ctc
+hidden_ndim=512
+
+gpu=0
+lr=5e-4
+batch_size=10
+disp_iter=40
+patience=10
+max_epoch=100
+
+snap_path=DIR/snapshot
+prefix=crnn
+
+----
+This is a baseline crnn model
